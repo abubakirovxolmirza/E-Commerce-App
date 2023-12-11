@@ -1,0 +1,15 @@
+{% extends 'shops/base.html' %}
+
+{% block header %}
+    <title>@{{ shops.user }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="tweet">
+        <a href="tweets/{{ user.id }}" class="user">@{{  shops.user  }}</a>
+        <p class="tweets">{{ shops.shop }}</p>
+        <span class="post_date">{{ shops.post_date|date:'D H:i' }}</span>
+        <a href="{{ shops.id }}/delete" class="btn btn-danger">Postni o'chirish</a>
+    </div>
+
+{% endblock %}

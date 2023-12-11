@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block heading %}{% endblock heading %}
+   <link rel="stylesheet" href="{% static 'shops/style.css' %}">
+<body>
+    <nav class="navbar">
+        <a class="logo">LoGo</a>
+        <ul class="navbar_items">
+            <li class="navbar_item"><a href="{% url 'index' %}">home</a></li>
+          {% if user.is_authenticated %}
+                <li class="navbar_item"><a href="{% url 'new' %}">Product add</a></li>
+                <li class="navbar_item"><a href="{% url 'profile' %}">Profile</a></li>
+        </ul>
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="contact">Logout</button>
+                </form>
+{#                <a href="{% url 'logout' %}" class="contact">Log out</a>#}
+                {% else %}
+                    <a href="{% url 'login' %}" class="contact">Login</a>
+                    <a href="{% url 'signup' %}" class="contact">Sign Up</a>
+            {% endif %}
+    </nav>
+    {% block content %}{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'shops/base.html'%}
+{% load crispy_forms_tags %}
+
+{% block header %}
+    <title>New Post!</title>
+{% endblock %}
+
+{% block content %}
+    <h1>What's new today!</h1>
+    <form method="POST" class="post_form">
+        {% csrf_token %}
+        <h3>Ishonchingiz komilni manashu postni o'chirishga?</h3>
+        <a href="{% url 'index' %}" class="btn btn-success">Yo'q,o'chirmang.</a>
+        <button type="submit" class="btn btn-danger">Ha,o'chiring.</button>
+    </form>
+{% endblock %}

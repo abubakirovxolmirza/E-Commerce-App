@@ -1,0 +1,22 @@
+{% extends 'shops/base.html' %}
+
+{% block header %}
+    <title>Home Page!</title>
+{% endblock header %}
+    
+{% block content %}
+    <div class="card-container-">
+    {% for i in shop %}
+
+        <article class="card">
+            <img src="/media/{{ i.photo_video }}"/>
+            <div class="container">
+              <h1>{{ i.shop }}</h1>
+{#              <p>{{ i.post_content }}</p>#}
+              <span>{{ i.shop_date|date:"Y-m-d H:i" }}</span>
+            </div>
+        </article>
+
+    {% endfor %}
+        </div>
+{% endblock content %}
